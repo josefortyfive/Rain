@@ -65,6 +65,7 @@ public class Game extends Canvas implements Runnable{
 	}
 	
 	//For Rendering images with 3
+	
 	public void render() {
 		BufferStrategy bs = getBufferStrategy();
 		if(bs == null) {
@@ -72,7 +73,10 @@ public class Game extends Canvas implements Runnable{
 			return;
 		}
 		
+		//renders pixels from screen object
+		screen.clear();
 		screen.render();
+		
 		
 		for(int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
