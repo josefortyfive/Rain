@@ -16,7 +16,7 @@ public class Game extends Canvas implements Runnable{
 	private static final long serialVersionUID = 1L;
 	
 	public static int width = 300;
-	public static int height = width / 16 * 9;
+	public static int height = 168;
 	public static int scale = 3;
 	
 	private Screen screen;
@@ -53,11 +53,20 @@ public class Game extends Canvas implements Runnable{
 	
 	@Override
 	public void run() {
+		long lastTime = System.nanoTime();
+		final double ns = 1_000_000_000.0 / 60.0;
+		double delta = 0;
 		while(running) {
-			System.out.println("Running...");
-			update();
+			long now = System.nanoTime();
+			delta += (now - lastTime) / ns;
+			lastTime = now;
+			while(delta >= 1) {
+				update();
+				delta--;
+			}
 			render();
 		}
+		stop();
 	}
 	
 	public void update() {
