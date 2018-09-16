@@ -72,13 +72,19 @@ public class Game extends Canvas implements Runnable{
 			return;
 		}
 		
+		screen.render();
+		
+		for(int i = 0; i < pixels.length; i++) {
+			pixels[i] = screen.pixels[i];
+		}
+		
 		Graphics g = bs.getDrawGraphics();
-		g.setColor(Color.CYAN);
-		g.fillRect(0, 0, getWidth(), getHeight());
+		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.dispose();
 		bs.show();
 	}
 	
+	// Main method 
 	public static void main(String args[]) {
 		Game game = new Game();
 		game.frame.setResizable(false);
