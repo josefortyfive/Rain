@@ -86,8 +86,10 @@ public class Game extends Canvas implements Runnable{
 		stop();
 	}
 	
+	int x = 0, y = 0;
 	public void update() {
-		
+		x++;
+		y++;
 	}
 	
 	//For Rendering images with 3
@@ -101,7 +103,7 @@ public class Game extends Canvas implements Runnable{
 		
 		//renders pixels from screen object
 		screen.clear();
-		screen.render();
+		screen.render(x, 0);
 		
 		
 		for(int i = 0; i < pixels.length; i++) {
