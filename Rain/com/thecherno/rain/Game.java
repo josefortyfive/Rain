@@ -94,8 +94,11 @@ public class Game extends Canvas implements Runnable{
 	int x = 0, y = 0;
 	public void update() {
 		keyboard.update();
-		x++;
-		y++;
+		if(keyboard.up) y--;
+		if(keyboard.down) y++;
+		if(keyboard.left) x--;
+		if(keyboard.right) x++;
+	
 	}
 	
 	//For Rendering images with 3
@@ -109,7 +112,7 @@ public class Game extends Canvas implements Runnable{
 		
 		//renders pixels from screen object
 		screen.clear();
-		screen.render(x, 0);
+		screen.render(x, y);
 		
 		
 		for(int i = 0; i < pixels.length; i++) {
@@ -129,6 +132,7 @@ public class Game extends Canvas implements Runnable{
 		game.frame.setTitle(Game.title);
 		game.frame.add(game);
 		game.frame.pack();
+		game.frame.requestFocusInWindow();
 		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		game.frame.setLocationRelativeTo(null);
 		game.frame.setVisible(true);

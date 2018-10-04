@@ -13,9 +13,14 @@ public class Keyboard implements KeyListener {
 		down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
 		left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_A];
 		right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
+
 		
-		System.out.println(up);
-		
+		// This is for to trace what Key No. Was Pushed
+		for(int i = 0; i < keys.length; i++) {
+			if(keys[i]) {
+				System.out.println("KEY: "+i);
+			}
+		}
 	}
 	
 	public void keyPressed(KeyEvent e) {
