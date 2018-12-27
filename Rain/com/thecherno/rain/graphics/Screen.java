@@ -38,8 +38,7 @@ public class Screen {
 			int yy = y + yOffSet;
 			for(int x = 0; x < width; x++) {
 				int xx = x + xOffSet;
-				int tileIndex = ((xx >> 4) & MAP_SIZE_MASK) + ((yy >> 4) & MAP_SIZE_MASK) * MAP_SIZE;
-				pixels[x + y * width] = tiles[tileIndex];
+				pixels[x + y * width] = Sprite.grass.pixels[(x & 15) + (y & 15) * Sprite.grass.SIZE];
 			}
 		}
 	}
