@@ -93,6 +93,8 @@ public class Game extends Canvas implements Runnable{
 	
 	int x = 0, y = 0;
 	public void update() {
+		
+		// Keyboard class
 		keyboard.update();
 		if(keyboard.up) y--;
 		if(keyboard.down) y++;

@@ -25,6 +25,7 @@ public class Screen {
 		
 	}
 	
+	// clearing the screen after it has been shown
 	public void clear() {
 		for(int i = 0; i < pixels.length; i++) {
 			pixels[i] = 0;
@@ -35,10 +36,8 @@ public class Screen {
 	public void render(int xOffSet, int yOffSet) {
 		for(int y = 0; y < height; y++) {
 			int yy = y + yOffSet;
-			//if(y< 0 || y >= height) break;
 			for(int x = 0; x < width; x++) {
 				int xx = x + xOffSet;
-				//if(x < 0 || x >= width) break;
 				int tileIndex = ((xx >> 4) & MAP_SIZE_MASK) + ((yy >> 4) & MAP_SIZE_MASK) * MAP_SIZE;
 				pixels[x + y * width] = tiles[tileIndex];
 			}
